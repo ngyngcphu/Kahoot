@@ -1,31 +1,41 @@
 import React from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Grid } from '@mui/material';
 class QuizDetailsForm extends React.Component {
     render() {
         const { handleChange, values, nextStep } = this.props;
         return (
-            <div>
-                <h1>Enter information about quiz:</h1>
-                <form>
+            <Grid
+                container
+                spacing={2}
+                justifyContent='center'
+            >
+                <Grid item xs={12} style={{textAlign:'center'}}>
+                    <h1>Enter information about quiz</h1>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         name='name'
                         label='Name'
                         onChange={handleChange}
-                        value={values.name}
+                        value={values/*.name*/}
+                        fullWidth
                         required />
-                    <br />
+                </Grid>
+                <Grid item xs={12} sm={6}>
                     <TextField 
                         name='category'
                         label='Category'
                         onChange={handleChange}
-                        value={values.category}
+                        value={values/*.category*/}
+                        fullWidth
                         required />
-                    <br />
+                </Grid>
+                <Grid item>
                     <Button variant='contained' color='primary' type='submit' onClick={nextStep}>
                         Next
                     </Button>
-                </form>
-            </div>
+                </Grid>
+            </Grid>
         );
     }
 }

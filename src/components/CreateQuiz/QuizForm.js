@@ -66,7 +66,6 @@ class QuizForm extends React.Component {
                 return <h1>Confirm</h1>;
             case 4:
                 return <h1>Success</h1>;
-            default:
         }
     }
 }

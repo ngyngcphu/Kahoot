@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 //import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 //import App from './components/App';
-import QuizForm from './components/CreateQuiz/QuizForm'
+import QuizDetailsForm from './components/CreateQuiz/QuizDetailsForm'
+// import QuestionsForm from './components/CreateQuiz/QuestionsForm'
 import './App.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -13,7 +14,7 @@ root.render(
     {/* <Router>
       <App />
     </Router> */}
-    <QuizForm />
+    <QuizDetailsForm />
   </React.StrictMode>
 );
 

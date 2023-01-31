@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 //import App from './components/App';
 //import QuizDetailsForm from './components/CreateQuiz/QuizDetailsForm'
-// import QuestionsForm from './components/CreateQuiz/QuestionsForm'
-import Confirm from './components/CreateQuiz/Confirm'
+//import QuestionsForm from './components/CreateQuiz/QuestionsForm'
+//import Confirm from './components/CreateQuiz/Confirm'
+import QuizForm from './components/CreateQuiz/QuizForm'
 import './App.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -15,7 +16,7 @@ root.render(
     {/* <Router>
       <App />
     </Router> */}
-    <Confirm />
+    <QuizForm />
   </React.StrictMode>
 );
 

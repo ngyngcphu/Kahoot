@@ -24,7 +24,7 @@ const QuestionList = props => {
     )
 }
 
-class Confirm extends React.Component {
+class Confirm extends React.PureComponent {
     render() {
         const { saveQuiz, prevStep, values } = this.props;
         return (

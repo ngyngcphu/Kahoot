@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextField, Button, Grid } from '@mui/material';
-class QuizDetailsForm extends React.Component {
+
+class QuizDetailsForm extends React.PureComponent {
     render() {
         const { handleChange, values, nextStep } = this.props;
         return (
@@ -40,4 +41,4 @@ class QuizDetailsForm extends React.Component {
     }
 }
 
-export default QuizDetailsForm
+export default QuizDetailsForm;

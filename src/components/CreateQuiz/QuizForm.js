@@ -1,9 +1,14 @@
 import React from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import QuizDetailsForm from './QuizDetailsForm';
 import QuestionsForm from './QuestionsForm';
+import Confirm from './Confirm';
 
-class QuizForm extends React.Component {
+let URL = (model) => {
+    return `http://localhost:3000/${model}/`
+}
+
+class QuizForm extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,6 +46,20 @@ class QuizForm extends React.Component {
         });
     }
 
+    saveQuiz = async () => {
+        const { name, category, questions } = this.state;
+        const postRequest = {
+            name: name,
+            category: category,
+            questions: questions
+        }
+        console.log(postRequest);
+        let res = await axios.post(URL('quizzes', postRequest));
+        const quizId = res.data._id;
+        console.log(quizId);
+        this.props.history.push(`/quizzes/${quizId}`);
+    }
+
     render() {
         const { step, name, category, questions } = this.props;
         const values = { name, category, questions };
@@ -58,16 +77,22 @@ class QuizForm extends React.Component {
                     <QuestionsForm
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
-                        handleChange={this.handleChange}
+                        values={values}
                         saveQuestion={this.saveQuestion}
                     />
                 );
             case 3:
-                return <h1>Confirm</h1>;
+                return (
+                    <Confirm
+                        prevStep={this.prevStep}
+                        values={values}
+                        saveQuiz={this.saveQuiz}
+                    />
+                );
             case 4:
-                return <h1>Success</h1>;
+                
         }
     }
 }
 
-export default QuizForm
+export default QuizForm;

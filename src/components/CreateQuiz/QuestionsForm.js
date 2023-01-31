@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, TextField, InputLabel, FormControl, Select, MenuItem, Button } from '@mui/material';
 
-class QuestionForm extends React.Component {
+class QuestionForm extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -100,8 +100,8 @@ const Questions = (props) => {
         return (<div>No questions have been added.</div>);
     }
     // const quizQuestions = props.questions.map((q, i) => (
-    //     <div>
-    //         <div key={i} style={{fontWeight: 'bold'}}>Question { i + 1 }</div>
+    //     <div key={i}>
+    //         <div style={{fontWeight: 'bold'}}>Question { i + 1 }</div>
     //         <p>{q.question} Answer: {q.answers[q.correct]}</p>
     //     </div>
     // ));
@@ -113,7 +113,7 @@ const Questions = (props) => {
     );
 }
 
-class QuestionsForm extends React.Component {
+class QuestionsForm extends React.PureComponent {
     render() {
         const { saveQuestion, nextStep, prevStep, values } = this.props;
         return (

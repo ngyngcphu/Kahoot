@@ -54,7 +54,7 @@ class QuizForm extends React.PureComponent {
             questions: questions
         }
         console.log(postRequest);
-        let res = await axios.post(URL('quizzes', postRequest));
+        let res = await axios.post(URL('quizzes'), postRequest);
         const quizId = res.data._id;
         console.log(quizId);
         this.props.history.push(`/quizzes/${quizId}`);

@@ -6,7 +6,8 @@ import './index.css';
 //import QuizDetailsForm from './components/CreateQuiz/QuizDetailsForm'
 //import QuestionsForm from './components/CreateQuiz/QuestionsForm'
 //import Confirm from './components/CreateQuiz/Confirm'
-import QuizForm from './components/CreateQuiz/QuizForm'
+//import QuizForm from './components/CreateQuiz/QuizForm'
+import Lobby from './components/Lobby/Lobby';
 import './App.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,7 +17,7 @@ root.render(
     {/* <Router>
       <App />
     </Router> */}
-    <QuizForm />
+    <Lobby />
   </React.StrictMode>
 );
 

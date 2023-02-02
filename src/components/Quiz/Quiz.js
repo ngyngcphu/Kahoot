@@ -68,3 +68,5 @@ class Quiz extends React.PureComponent {
         );
     }
 }
+
+export default Quiz;

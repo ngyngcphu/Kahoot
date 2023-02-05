@@ -1,6 +1,7 @@
 import React from 'react';
 import QuizInfo from '../utils';
 import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const PreviewQuestions = props => {
     if (props.questions.length === 0) {
@@ -27,6 +28,7 @@ class Quiz extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             name: '',
             category: '',
             questions: []
@@ -38,9 +40,10 @@ class Quiz extends React.PureComponent {
         const { quizId } = this.props.match.params;
         console.log(quizId);
         const data = await QuizInfo.getQuiz(quizId);
-        const { name, category, questions } = data;
+        const { _id, name, category, questions } = data;
         console.log(name, category, questions);
         this.setState({
+            id: _id,
             name: name,
             category: category,
             questions: questions
@@ -63,6 +66,11 @@ class Quiz extends React.PureComponent {
                 </Grid>
                 <Grid item>
                     <PreviewQuestions questions={this.state.questions} />
+                </Grid>
+                <Grid item>
+                    <Link to={`/lobby?quizId=${this.state.id}`}>
+                        Host Game
+                    </Link>
                 </Grid>
             </Grid>
         );

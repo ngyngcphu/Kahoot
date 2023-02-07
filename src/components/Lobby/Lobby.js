@@ -1,9 +1,7 @@
 import React from 'react';
 import Pin from '../Global/Pin';
-import queryString from 'query-string';
 import { socket } from '../Global/Header';
 import { Button } from '@mui/material';
-
 class Lobby extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -15,21 +13,19 @@ class Lobby extends React.PureComponent {
     }
 
     componentDidMount() {
-        const parsed = queryString.parse(window.location.search);
-        const quizId = parsed.quizId;
+        const query = new URLSearchParams(window.location.search);
+        const quizId = query.get('quizId');
         console.log(quizId);
         this.setState({
             quizId: quizId
         });
-        socket.on('connect', () => {
-            socket.emit('hostJoin', quizId);
-        });
-        socket.on('showPin', data => {
+        socket.emit('HOST_JOINED', quizId);
+        socket.on('SHOW_PIN', data => {
             this.setState({
                 pin: data.pin
             });
         })
-        socket.on('updatePlayersInLobby', players => {
+        socket.on('UPDATE_PLAYERS_IN_LOBBY', players => {
             this.setState({
                 players: players
             });

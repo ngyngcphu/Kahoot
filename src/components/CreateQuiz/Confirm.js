@@ -11,15 +11,15 @@ const QuizDetails = props => {
 }
 
 const QuestionList = props => {
-    // const quizQuestions = props.questions.map((q, i) => (
-    //     <div key={i}>
-    //         <div style={{fontWeight: 'bold'}}>Question {i + 1}</div>
-    //         <p>{q.question} Answer: {q.answers[q.correct]}</p>
-    //     </div>
-    // ));
+    const quizQuestions = props.questions.map((q, i) => (
+        <div key={i}>
+            <div style={{fontWeight: 'bold'}}>Question {i + 1}</div>
+            <p>{q.question} Answer: {q.answers[q.correct]}</p>
+        </div>
+    ));
     return (
         <div>
-            {/* { quizQuestions } */}
+            { quizQuestions }
         </div>
     )
 }
@@ -37,8 +37,8 @@ class Confirm extends React.PureComponent {
                     <h1>Confirm quiz:</h1>
                 </Grid>
                 <Grid item>
-                    <QuizDetails name={values} category={values} />
-                    <QuestionList questions= {values} />
+                    <QuizDetails name={values.name} category={values.category} />
+                    <QuestionList questions={values.questions} />
                 </Grid>
                 <Grid item>
                     <Grid

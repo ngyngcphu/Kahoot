@@ -37,7 +37,7 @@ class Start extends React.PureComponent {
         });
 
         setTimeout(() => {
-            window.location.assign(`/question?quizId=${this.state.quizId}&pin=${this.state.pin}`);
+            window.location.href = `/question?quizId=${this.state.quizId}&pin=${this.state.pin}`;
         }, 5000);
     }
 

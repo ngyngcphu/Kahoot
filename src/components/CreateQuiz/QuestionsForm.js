@@ -96,22 +96,22 @@ class QuestionForm extends React.PureComponent {
 }
 
 const Questions = (props) => {
-    if (props.questions/*.length*/ === 0) {
+    if (props.questions.length === 0) {
         return (<div>No questions have been added.</div>);
     }
-    // const quizQuestions = props.questions.map((q, i) => (
-    //     <div key={i}>
-    //         <div style={{fontWeight: 'bold'}}>Question { i + 1 }</div>
-    //         <p>{q.question} Answer: {q.answers[q.correct]}</p>
-    //     </div>
-    // ));
+    const quizQuestions = props.questions.map((q, i) => (
+        <div key={i}>
+            <div style={{fontWeight: 'bold'}}>Question { i + 1 }</div>
+            <p>{q.question} Answer: {q.answers[q.correct]}</p>
+        </div>
+    ));
     return (
         <div>
             <h1>Current Questions:</h1>
-            {/* { quizQuestions } */}
+            { quizQuestions }
         </div>
     );
-}
+};
 
 class QuestionsForm extends React.PureComponent {
     render() {
@@ -147,11 +147,11 @@ class QuestionsForm extends React.PureComponent {
                     </Grid>
                 </Grid>
                 <Grid item>
-                    <Questions questions={values/*.questions*/} />
+                    <Questions questions={values.questions} />
                 </Grid>
             </Grid>
         );
     }
 }
 
-export default QuestionsForm
+export default QuestionsForm;

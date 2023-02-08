@@ -5,7 +5,7 @@ import QuestionsForm from './QuestionsForm';
 import Confirm from './Confirm';
 
 let URL = (model) => {
-    return `http://localhost:3000/${model}/`
+    return `http://localhost:3000/${model}/`;
 }
 
 class QuizForm extends React.PureComponent {
@@ -54,14 +54,14 @@ class QuizForm extends React.PureComponent {
             questions: questions
         }
         console.log(postRequest);
-        let res = await axios.post(URL('quizzes'), postRequest);
+        const res = await axios.post(URL('quizzes'), postRequest);
         const quizId = res.data._id;
         console.log(quizId);
-        this.props.history.push(`/quizzes/${quizId}`);
+        window.location.href = `/quizzes/${quizId}`;
     }
 
     render() {
-        const { step, name, category, questions } = this.props;
+        const { step, name, category, questions } = this.state;
         const values = { name, category, questions };
         switch (step) {
             case 1:
@@ -89,8 +89,14 @@ class QuizForm extends React.PureComponent {
                         saveQuiz={this.saveQuiz}
                     />
                 );
-            case 4:
-                
+            default:
+                return (
+                    <QuizDetailsForm
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
         }
     }
 }

@@ -3,12 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './components/App';
-//import QuizDetailsForm from './components/CreateQuiz/QuizDetailsForm'
-//import QuestionsForm from './components/CreateQuiz/QuestionsForm'
-//import Confirm from './components/CreateQuiz/Confirm'
-//import QuizForm from './components/CreateQuiz/QuizForm'
-//import Lobby from './components/Lobby/Lobby';
-//import JoinGameForm from './components/Player/JoinGameForm';
 import './App.css';
 import reportWebVitals from './reportWebVitals';
 

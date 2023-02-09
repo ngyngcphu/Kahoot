@@ -5,7 +5,7 @@ class Question extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            pin: '',
+            pin: 0,
             quizId: '',
             question: '',
             questionNumber: 0,
@@ -16,7 +16,7 @@ class Question extends React.PureComponent {
     componentDidMount() {
         const query = new URLSearchParams(window.location.search);
         const quizId = query.get('quizId');
-        const pin = query.get('pin');
+        const pin = parseInt(query.get('pin'));
         this.setState({
             pin: pin,
             quizId: quizId

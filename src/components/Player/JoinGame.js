@@ -8,7 +8,7 @@ class JoinGame extends React.PureComponent {
         this.state = {
             nickname: '',
             pin: '',
-            statuss: null
+            status: null
         };
     }
 
@@ -27,11 +27,23 @@ class JoinGame extends React.PureComponent {
             nickname: nickname,
             pin: pin
         });
+
         socket.on('GAME_NOT_FOUND', () => {
             console.log('Game not found');
             this.setState({
                 status: false
             });
+        })
+
+        socket.on('PLAYER_JOINED_SUCCESSFULLY', () => {
+            window.history.pushState(
+                {
+                    nickname: this.state.nickname,
+                    pin: this.state.pin,
+                },
+                '',
+                '/instructions'
+            )
         })
     }
 

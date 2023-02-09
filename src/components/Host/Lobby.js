@@ -2,6 +2,7 @@ import React from 'react';
 import Pin from '../Global/Pin';
 import { socket } from '../Global/Header';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 class Lobby extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -33,7 +34,8 @@ class Lobby extends React.PureComponent {
     }
 
     startGame = () => {
-        socket.emit('startGame');
+        console.log('Starting game...');
+        socket.emit('HOST_STARTED_GAME', this.state.pin);
     }
 
     render() {
@@ -41,9 +43,11 @@ class Lobby extends React.PureComponent {
             <div>
                 <Pin pin={this.state.pin} />
                 <Players players={this.state.players} />
-                <Button variant='contained' color='primary' onClick={this.startGame}>
-                    Start
-                </Button>
+                <Link to={`/start?quizId=${this.state.quizId}&pin=${this.state.pin}`}>
+                    <Button variant='contained' color='primary' onClick={this.startGame}>
+                        Start
+                    </Button>
+                </Link>
             </div>
         );
     }

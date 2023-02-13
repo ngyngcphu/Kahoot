@@ -1,4 +1,4 @@
-export default{
+export const events = {
     HOST_JOINED: 'HOST_JOINED', //Lobby.js -> emit quizId
     SHOW_PIN: 'SHOW_PIN',       //Lobby.js -> on pin
     UPDATE_PLAYERS_IN_LOBBY: 'UPDATE_PLAYERS_IN_LOBBY', //Lobby.js -> on players
@@ -6,6 +6,9 @@ export default{
    
     PLAYER_JOINED: 'PLAYER_JOINED', //JoinGame.js -> emit (nickname, pin)
     GAME_NOT_FOUND: 'GAME_NOT_FOUND', //JoinGame.js -> on (not found game)
+    PLAYER_JOINED_SUCCESSFULLY: 'PLAYER_JOINED_SUCCESSFULLY', //JoinGame.js -> on
+
+    GAME_HAS_STARTED: 'GAME_HAS_STARTED', //Instruction.js -> on
 
     FETCH_INTRO: 'FETCH_INTRO', // Start.js -> emit pin
     GAME_INTRO: 'GAME_INTRO',   // Start.js -> on (quizName, numberOfQuestions)

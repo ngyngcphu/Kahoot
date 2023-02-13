@@ -5,7 +5,7 @@ import Quiz from './Quiz/Quiz';
 import Lobby from './Host/Lobby';
 import Start from './Host/Start';
 import Question from './Host/Question';
-import PlayerStart from './Player/PlayerStart';
+import GetReady from './Player/GetReady';
 import Instructions from './Player/Instructions';
 import { Header } from './Global/Header';
 import { Routes, Route } from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
         <Route path='/start' element={<Start />} />
         <Route path='/question' element={<Question />} />
         <Route path='/instructions' element={<Instructions />} />
-        <Route path='/play' element={<PlayerStart />} />
+        <Route path='/getready' element={<GetReady />} />
       </Routes>
     </div>
   );

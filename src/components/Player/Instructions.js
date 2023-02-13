@@ -25,7 +25,7 @@ class Instructions extends React.PureComponent {
                     pin: this.state.pin
                 },
                 '',
-                '/play'
+                '/getready'
             )
         })
     }

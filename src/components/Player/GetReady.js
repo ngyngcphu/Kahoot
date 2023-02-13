@@ -1,7 +1,7 @@
 import React from 'react';
 import { socket } from '../Global/Header';
 
-class PlayerStart extends React.PureComponent {
+class GetReady extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +26,7 @@ class PlayerStart extends React.PureComponent {
                         nickname: this.state.nickname
                     },
                     '',
-                    '/getready'
+                    '/playblock'
                 )
             }, 5000)
         })
@@ -42,4 +42,4 @@ class PlayerStart extends React.PureComponent {
     }
 }
 
-export default PlayerStart;
+export default GetReady;

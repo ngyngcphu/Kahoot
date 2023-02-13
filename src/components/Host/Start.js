@@ -32,12 +32,12 @@ class Start extends React.PureComponent {
                 numberOfQuestions: numberOfQuestions
             });
             setTimeout(() => {
-                this.props.history.push(`/question?quizId=${this.state.quizId}&pin=${this.state.pin}`);
+                this.props.history.push(`/gameblock?quizId=${this.state.quizId}&pin=${this.state.pin}`);
             }, 5000);
         });
 
         setTimeout(() => {
-            window.location.href = `/question?quizId=${this.state.quizId}&pin=${this.state.pin}`;
+            window.location.href = `/gameblock?quizId=${this.state.quizId}&pin=${this.state.pin}`;
         }, 5000);
     }
 

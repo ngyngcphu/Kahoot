@@ -3,7 +3,7 @@ import Pin from '../Global/Pin';
 
 class Preview extends React.PureComponent {
     componentDidMount() {
-        setTimeout(() => this.props.nextStep(), 5000);
+        setTimeout(this.props.nextStep, 5000);
     }
 
     render() {
